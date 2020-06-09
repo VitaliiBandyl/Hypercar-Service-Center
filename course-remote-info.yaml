@@ -120,6 +120,8 @@ topics:
     theory_id: 9704
   - title: Command line overview
     theory_id: 8977
+  - title: Parameters and options
+    theory_id: 9746
   - title: Pip
     theory_id: 6230
   - title: Introduction to Django

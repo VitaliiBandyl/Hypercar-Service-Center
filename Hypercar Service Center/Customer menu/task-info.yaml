@@ -678,6 +678,15 @@ files:
     if __name__ == '__main__':
         main()
   learner_created: true
+- name: hypercar/templates/base.html
+  visible: true
+  learner_created: true
+- name: hypercar/templates/tickets/base_tickets.html
+  visible: true
+  learner_created: true
+- name: hypercar/templates/tickets/menu.html
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/85/stages/471/implement
-status: Unchecked
+status: Solved
 record: 2
