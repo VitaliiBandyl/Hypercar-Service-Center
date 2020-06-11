@@ -1,2 +1,6 @@
+{% extends 'tickets/base_tickets.html' %}
+
+{% block content %}
 <div>Your number is {{ ticket_number }}</div>
 <div>Please wait around {{ minutes_to_wait }} minutes</div>
+{% endblock content %}

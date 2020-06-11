@@ -18,6 +18,8 @@ class MenuView(View):
 
 
 class TicketView(View):
+    """Create order view. Returns ticket number and expected time to wait"""
+
     line_of_cars = {
         "change_oil": [],
         "inflate_tires": [],
@@ -38,11 +40,26 @@ class TicketView(View):
             minutes_to_wait = minutes_to_inflate_tires + minutes_to_change_oil
         elif ticket_type == 'diagnostic':
             minutes_to_wait = minutes_to_diagnostic + minutes_to_inflate_tires + minutes_to_change_oil
-        self.ticket_number += 1
-        self.line_of_cars[ticket_type].append(self.ticket_number)
+        TicketView.ticket_number += 1
+        self.line_of_cars[ticket_type].append(TicketView.ticket_number)
 
         return render(request, 'tickets/order.html',
                       context={
                           "ticket_number": self.ticket_number,
                           "minutes_to_wait": minutes_to_wait
+                      })
+
+
+class OperatorView(View):
+    """Operator menu. Shows the queue length for each service"""
+    def get(self, request, *args, **kwargs):
+        change_oil_queue = len(TicketView.line_of_cars["change_oil"])
+        inflate_tires = len(TicketView.line_of_cars["inflate_tires"])
+        diagnostic = len(TicketView.line_of_cars["diagnostic"])
+
+        return render(request, 'tickets/processing.html',
+                      context={
+                          "change_oil_queue": change_oil_queue,
+                          "inflate_tires": inflate_tires,
+                          "diagnostic": diagnostic
                       })

@@ -13,16 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path, re_path
+from django.urls import path
+from django.views.generic import RedirectView
 from tickets.views import *
 
 
 urlpatterns = [
     path('welcome/', WelcomeView.as_view()),
     path('menu/', MenuView.as_view()),
-    re_path(r'get_ticket/(?P<ticket_type>[\w_]+)/$', TicketView.as_view()),
     path('get_ticket/<str:ticket_type>/', TicketView.as_view()),
-    # path('get_ticket/change_oil/', ChangeOilView.as_view()),
-    # path('get_ticket/inflate_tires/', InflateTiresView.as_view()),
-    # path('get_ticket/diagnostic/', DiagnosticView.as_view()),
+    path('processing/', OperatorView.as_view()),
+    # path('processing/', RedirectView.as_view(url='/processing')),
 ]
