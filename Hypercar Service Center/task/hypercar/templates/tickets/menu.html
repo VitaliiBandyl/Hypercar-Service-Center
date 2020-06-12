@@ -4,4 +4,11 @@
 {% for link, description in services.items %}
     <a href="/get_ticket/{{link}}">{{description}}</a>
 {% endfor %}
+<div>
+    {% if next_ticket_number %}
+    Next ticket #{{ next_ticket_number }}
+    {% else %}
+    Waiting for the next client
+    {% endif %} </div>
+
 {% endblock %}

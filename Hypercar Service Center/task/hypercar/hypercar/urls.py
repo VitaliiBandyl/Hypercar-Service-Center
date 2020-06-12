@@ -22,6 +22,6 @@ urlpatterns = [
     path('welcome/', WelcomeView.as_view()),
     path('menu/', MenuView.as_view()),
     path('get_ticket/<str:ticket_type>/', TicketView.as_view()),
-    path('processing/', OperatorView.as_view()),
-    # path('processing/', RedirectView.as_view(url='/processing')),
+    path('processing', OperatorView.as_view()),
+    path('next/', NextView.as_view())
 ]
