@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from django.views.generic import RedirectView
 from tickets.views import *
 
 
@@ -22,6 +21,6 @@ urlpatterns = [
     path('welcome/', WelcomeView.as_view()),
     path('menu/', MenuView.as_view()),
     path('get_ticket/<str:ticket_type>/', TicketView.as_view()),
-    path('processing', OperatorView.as_view()),
+    path('processing/', OperatorView.as_view()),
     path('next/', NextView.as_view())
 ]

@@ -949,20 +949,6 @@ files:
         'diagnostic': 'Get diagnostic test'
     }
   learner_created: true
-- name: hypercar/templates/base.html
-  visible: true
-  text: |-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title #} Welcome to hypercar {% endblock %}</title>
-    </head>
-    <body>
-    {% block content %}There is no any content for you {% endblock %}
-    </body>
-    </html>
-  learner_created: true
 - name: hypercar/templates/tickets/next.html
   visible: true
   learner_created: true
